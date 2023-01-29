@@ -143,7 +143,7 @@ const Home: NextPage = () => {
             m='0 auto'
             display='block'/>
 
-            <figcaption display='block'>Your animal is</figcaption>
+            <figcaption>Your animal is</figcaption>
           </Box>
         </Box>
     </Flex>
