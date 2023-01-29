@@ -25,13 +25,13 @@ async def root():
     return {"message": "Welcome to the back end"}
 
 # request image from openai
-@app.post("/image_request")
-def get_image(animal):
-    files = {}
-    x = requests.post(url, files=files)
-    data = {animal, "https://images.unsplash.com/photo-1600804340584-c7db2eacf0bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHVwcHl8ZW58MHx8MHx8&w=1000&q=80"}
-    return x.text
-    
+@app.put("/image_request")
+def get_image():
+    data = {"animal", "string"}
+    response = requests.put(url, json=data)
+    with open("image.json", "w+") as f:
+        json.dump(response, f)
+
     try:
         #prompt for image
         image_response = openai.Image.create(
