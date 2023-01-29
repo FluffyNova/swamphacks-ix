@@ -7,7 +7,7 @@ from openai.error import InvalidRequestError
 import os
 import configparser
 
-config = configparser
+config = configparser.ConfigParser()
 config.read('credential.ini')
 API_KEY = config['openai']['APIKEY']
 openai.api_key = API_KEY
