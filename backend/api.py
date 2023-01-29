@@ -24,6 +24,8 @@ async def root():
 # request image from openai
 @app.get("/image_request")
 def get_image():
+    #just for now
+    return {"image_url": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
     try:
         #prompt for image
         image_response = openai.Image.create(
