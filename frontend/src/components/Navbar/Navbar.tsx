@@ -11,8 +11,9 @@ const Navbar:React.FC = () => {
             bg='#202A44'
             padding={'0'}>
                 <Text
-                fontSize={'25px'}
-                textColor='white'>
+                fontSize={'2.5rem'}
+                textColor='white'
+                as='b'>
                     onclick = Ocean()
                 </Text>
             </Box>
