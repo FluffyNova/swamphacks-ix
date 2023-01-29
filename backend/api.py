@@ -6,6 +6,7 @@ import openai
 from openai.error import InvalidRequestError
 import os
 import configparser
+import requests
 
 #config = configparser.ConfigParser()
 #config.read('credential.ini')
@@ -16,14 +17,20 @@ import configparser
 openai.api_key = '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'
 
 app = FastAPI()
+url = 'https://swamphacksix.ue.r.appspot.com'
 
 @app.get("/")
 async def root():
     return {"message": "Welcome to the back end"}
 
 # request image from openai
-@app.get("/image_request")
+@app.post("/image_request")
 def get_image():
+    files = {}
+    response = requests.post(f"{url}/image_request", files=files)
+    species_name = files['animal']
+    print(species_name)
+
     #just for now
     return {"image_url": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
     try:

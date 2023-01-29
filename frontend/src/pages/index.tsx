@@ -35,7 +35,7 @@ const Home: NextPage = () => {
 
   const getAnimal = async (species_name: any) => {
     const request = await fetch(`${HOST_PREFIX}/image_request`, {
-      method: 'GET',
+      method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       body: JSON.stringify({
         animal: species_name
