@@ -89,15 +89,13 @@ const Home: NextPage = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </CardBody>
 
-              <CardFooter>
-                <HStack
-                alignItems={'center'}
-                flexWrap='wrap'
-                opacity='1'>
+              <CardFooter
+              justifyContent='left'>
+                
                     <Input
-                    mt="40px" 
+                    
                     color="white"
-                    width="40%"
+                    width="66%"
                     minWidth="200px" 
                     placeholder="Seed Number" 
                     required type="number"
@@ -109,15 +107,16 @@ const Home: NextPage = () => {
                     />
 
                     <Button
-                    mt="20px"
+                    marginLeft='2'
                     width="40%"
                     minWidth="200px" 
                     p='2'
+                    justifySelf='right'
                     type="submit"
                     isLoading={loading}>
                       Generate Sea Animal
                     </Button>
-                  </HStack>
+                  
                 </CardFooter>
               </Flex>
           </form>
@@ -129,32 +128,23 @@ const Home: NextPage = () => {
         textAlign='center'
         height='fit-content' >
 
-          <Heading 
-          m='0 auto'
-          display='block'
-          p='0'
-          textColor='white'>
-            Your Animal:
-          </Heading>
+          <Box
+          bgColor='white'
+          p='2.5'
+          borderRadius='10px'>
 
-          
-            <Image
+          <Image
             src={animalImg}
-            width="100px" 
+            width="auto" 
             height='100px'
             alt='your animal'
+            borderRadius='10px'
             boxSize={'-webkit-fit-content'}
             m='0 auto'
             display='block'/>
-        
-          
 
-          <Text
-          p='0'
-          alignItems='center'
-          textColor='white' >
-            Your animal is called
-          </Text>
+            <figcaption display='block'>Your animal is</figcaption>
+          </Box>
         </Box>
     </Flex>
   )

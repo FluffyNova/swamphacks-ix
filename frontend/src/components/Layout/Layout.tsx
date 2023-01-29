@@ -12,8 +12,8 @@ const Layout:React.FC<LayoutProps> = ({ children }) => {
     return (
         <Box
         h='calc(100vh)'
-        bgImage="url('https://cdn4.vectorstock.com/i/1000x1000/91/03/geometric-blue-cold-texture-background-vector-24999103.jpg')"
-        
+        bgImage="url('https://media.istockphoto.com/id/670906286/pt/vetorial/blue-geometric-wallpaper-background.jpg?s=612x612&w=0&k=20&c=jl36Xxop5bnksUsuOeWKt5-Y3JVIaLlt_YwDRcMd__k=')"
+        bgSize='cover'
         >
             <Navbar />
             <main>{children}</main>

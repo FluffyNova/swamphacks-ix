@@ -8,7 +8,7 @@ const Footer:React.FC = () => {
         position='fixed'
         bottom={'0'}
         height='fit-content'
-        bgColor='white'
+        bgColor='#E7E9EB'
         p='1'>
             <HStack>
                 <Stack
@@ -16,11 +16,10 @@ const Footer:React.FC = () => {
                 width='25vw'>
                 
                 <Text
-                color={'#c3c3c3'}
                 fontSize='1em'>
                     Developed for
                 </Text>
-                <Text fontSize='2em'>SwampHacks 2023</Text>
+                <Text fontSize='2em'>SwampHacksIX</Text>
             </Stack>
 
             <Box
