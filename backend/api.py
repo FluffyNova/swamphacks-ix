@@ -25,12 +25,10 @@ async def root():
     return {"message": "Welcome to the back end"}
 
 # request image from openai
-@app.put("/image_request")
+@app.get("/image_request")
 def get_image():
     data = {"animal", "string"}
-    response = requests.put(url, json=data)
-    with open("image.json", "w+") as f:
-        json.dump(response, f)
+    return data
 
     try:
         #prompt for image
