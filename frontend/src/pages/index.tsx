@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Flex, Text, Box, HStack, Button, Image, Input, CardBody, Card, CardFooter, CardHeader, Heading } from '@chakra-ui/react'
+import { Flex, Text, Box, HStack, Button, Image, Input, CardBody, Card, CardFooter, CardHeader, Heading, VStack } from '@chakra-ui/react'
 import { ReactElement, useState } from 'react'
 
 // SET TO BACKEND API SERVER
-const HOST_PREFIX = '';
+const HOST_PREFIX = 'https://swamphacksix.ue.r.appspot.com';
 
 const Home: NextPage = () => {
 
@@ -18,10 +18,12 @@ const Home: NextPage = () => {
   const onSubmit = (event: any) => {
       setLoading(true);
       event.preventDefault();
-      console.log(generateForm.seed)
+      //console.log(generateForm.seed)
       // call API
+      const species_name = "dog"
 
-      getAnimal()
+
+      getAnimal(species_name)
       .then((response) => {
         console.log(response.analogy);
         // TODO UPDATE IMAGE SRC TO DECODE BASE64! BEFORE SETTING ANIMAL IMAGE SRC
@@ -31,12 +33,13 @@ const Home: NextPage = () => {
       .then(() => setLoading(false));
   }
 
-  const getAnimal = async () => {
-    const request = await fetch(`${HOST_PREFIX}/generate`, {
-      method: 'POST',
+  const getAnimal = async (species_name: any) => {
+    const request = await fetch(`${HOST_PREFIX}/image_request`, {
+      method: 'GET',
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       body: JSON.stringify({
-        seed: generateForm.seed
+        animal: species_name
+        //seed: generateForm.seed
       }),
     });
     const data = await request.json();
@@ -61,12 +64,12 @@ const Home: NextPage = () => {
     bgSize="cover"
     opacity='1'
     alignItems='center'>
-      
-      
+ 
+
         <Card
         borderWidth="1px" 
         m="1" 
-        maxWidth="50vw"
+        maxWidth="75vw"
         bgColor='#202A44'
         borderRadius="10px"
         alignItems={'center'}
@@ -76,49 +79,86 @@ const Home: NextPage = () => {
         >
         
           <form onSubmit={onSubmit}>
-            <Flex ml="30px" 
-            mr="30px" 
-            flexDirection="column" >
+            
+
+              <CardHeader>
+                <Heading
+                textColor='white'>
+                 Create your own ocean at the click of a button.
+                </Heading>
+              </CardHeader>
 
               <CardBody
               color="white" 
-              mt="25px"
               textAlign={'left'}
               width='-webkit-fit-content'
               opacity='1' >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Select the type of animal you wish to add to your ocean. Click the button below to generate an image of your animal.
               </CardBody>
 
-              <CardFooter
-              justifyContent='left'>
-                
-                    <Input
-                    
-                    color="white"
-                    width="66%"
-                    minWidth="200px" 
-                    placeholder="Seed Number" 
-                    required type="number"
-                    onChange={onChange} 
-                    name="seed"
-                    fontWeight={500}
-                    border="1.5px solid white"
-                    _placeholder={{color: 'gray.400'}}
-                    />
+              <CardFooter>
 
+             
+                <VStack
+                width='max-content'>
+                   <HStack
+                   textColor='white'
+                   width='max-content'>
+                    
+                      <VStack
+                      width='25%'>
+                        <input type='radio' id='octopus' name='animal' value='octopus' />
+                        <label for='octopus' >Octopus</label>
+                        
+                        <input type='radio' id='puffer' name='animal' value='pufferfish'/>
+                        <label for='puffer'>Pufferfish </label>
+                        <input type='radio' id='ray' name='animal' value='ray'/>
+                        <label for='ray'>Ray</label>
+                      </VStack>
+                      
+                      <VStack width='25%'>
+                        <input type='radio' id='whale' name='animal' value='whale'/>
+                        <label for='whale'>Whale</label>
+                        <input type='radio' id='eel' name='animal' value='eel'/>
+                        <label for='eel'>Eel</label>
+                        <input type='radio' id='crab' name='animal' value='crab'/>
+                        <label for='crab'>Crab</label>
+                      </VStack>
+
+                      <VStack width='25%'>
+                        <input type='radio' id='squid' name='animal' value='squid'/>
+                        <label for='squid'>Squid</label>
+                        <input type='radio' id='coral' name='animal' value='coral'/>
+                        <label for='coral'>Coral</label>
+                        <input type='radio' id='dolphin' name='animal' value='dolphin'/>
+                        <label for='dolphin'>Dolphin</label>
+                      </VStack>
+
+                      <VStack width='25%'>
+                        <input type='radio' id='starfish' name='animal' value='starfish'/>
+                        <label for='starfish'>Starfish</label>
+                        <input type='radio' id='lobster' name='animal' value='lobster'/>
+                        <label for='lobster'>Lobster</label>
+                        <input type='radio' id='jellyfish' name='animal' value='jellyfish'/>
+                        <label for='jellyfish'>Jellyfish</label>
+                      </VStack>
+                      </HStack>
+                    
+                   
                     <Button
                     marginLeft='2'
                     width="40%"
                     minWidth="200px" 
                     p='2'
-                    justifySelf='right'
+                    display='block'
                     type="submit"
                     isLoading={loading}>
-                      Generate Sea Animal
+                      Generate Animal
                     </Button>
                   
+                </VStack>   
                 </CardFooter>
-              </Flex>
+             
           </form>
         </Card>
 
