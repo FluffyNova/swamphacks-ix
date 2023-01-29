@@ -1,5 +1,5 @@
 from typing import Union
-from fastapi import FastAPI, Response, Request
+from fastapi import FastAPI, Response, Request, Body
 from PIL import Image
 import base64
 import openai
@@ -26,8 +26,7 @@ async def root():
 
 # request image from openai
 @app.post("/image_request")
-async def get_image(request: Request):
-    data = await request.json()
+async def get_image(data: dict = Body(...)):
     return data
     try:
         response = requests.post(f"{url}/image_request", files=files)
