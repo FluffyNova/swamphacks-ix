@@ -27,9 +27,7 @@ async def root():
 # request image from openai
 @app.post("/image_request")
 def get_image(animal: str):
-    data = {"image_url": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
-    return json.dumps(data)
-    files = {}
+    return {"animal": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
     try:
         response = requests.post(f"{url}/image_request", files=files)
         species_name = files['animal']
