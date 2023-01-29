@@ -25,7 +25,7 @@ async def root():
 
 # request image from openai
 @app.post("/image_request")
-def get_image():
+def get_image(file):
     files = {}
     try:
         response = requests.post(f"{url}/image_request", files=files)
