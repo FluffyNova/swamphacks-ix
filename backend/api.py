@@ -12,6 +12,7 @@ import configparser
 #API_KEY = config['openai']['APIKEY']
 #openai.api_key = API_KEY
 
+#todo fix creditial.ini pls
 openai.api_key = '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'
 
 app = FastAPI()
@@ -28,7 +29,8 @@ def get_image():
         image_response = openai.Image.create(
             prompt = "panda",
             n=1,
-            size="256x256"
+            size="256x256",
+            response_format = "url"
         )
         #get url of image (only one so it's at index 0)
         image_url = image_response['data'][0].url
