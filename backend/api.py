@@ -1,5 +1,5 @@
 from typing import Union
-from fastapi import FastAPI, Response, Request, Body
+from fastapi import FastAPI, Response, Request, Body, Form
 from PIL import Image
 import base64
 import openai
@@ -30,7 +30,8 @@ class Animal(BaseModel):
 
 # request image from openai
 @app.post("/image_request")
-async def get_image(img_url: Animal):
+async def get_image(input: Form(...)):
+    return {"input": input}
     data = {"image_url": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
     return json.dumps(data)
     try:
