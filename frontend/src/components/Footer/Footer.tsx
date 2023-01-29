@@ -9,11 +9,14 @@ const Footer:React.FC = () => {
         bottom={'0'}
         height='fit-content'
         bgColor='#E7E9EB'
-        p='1'>
+        p='0'>
             <HStack>
                 <Stack
                 spacing={'0'}
-                width='25vw'>
+                width='fit-content'
+                paddingLeft='5'
+                paddingRight='5'
+                paddingTop='1' >
                 
                 <Text
                 fontSize='1em'>
@@ -23,10 +26,10 @@ const Footer:React.FC = () => {
             </Stack>
 
             <Box
-            width='25vw'>
+            width='fit-content'>
                 <Text as='b'>Contributors</Text>
-                <Text>Aidan Burrowes</Text>
-                <Text>Gabriella Conde</Text>
+                <Text fontSize='1em'>Aidan Burrowes</Text>
+                <Text fontSize='1em'>Gabriella Conde</Text>
             </Box>
             </HStack>
             
