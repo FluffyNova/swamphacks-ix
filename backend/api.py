@@ -27,12 +27,16 @@ async def root():
 @app.post("/image_request")
 def get_image():
     files = {}
-    response = requests.post(f"{url}/image_request", files=files)
-    species_name = files['animal']
-    print(species_name)
+    try:
+        response = requests.post(f"{url}/image_request", files=files)
+        species_name = files['animal']
+        print(species_name)
+    except:
+        return {"image_url": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
 
+    return {"hello", "end"}
     #just for now
-    return {"image_url": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
+    
     try:
         #prompt for image
         image_response = openai.Image.create(
