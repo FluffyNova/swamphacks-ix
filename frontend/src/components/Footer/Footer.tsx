@@ -16,7 +16,8 @@ const Footer:React.FC = () => {
                 width='fit-content'
                 paddingLeft='5'
                 paddingRight='5'
-                paddingTop='1' >
+                paddingTop='1' 
+                textColor='black' >
                 
                 <Text
                 fontSize='1em'>
