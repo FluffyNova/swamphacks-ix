@@ -15,4 +15,5 @@ uvicorn
 websockets		
 wrapt			
 uvloop
-PIL
+Pillow
+openai
