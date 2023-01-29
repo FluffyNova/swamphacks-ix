@@ -7,6 +7,7 @@ from openai.error import InvalidRequestError
 import os
 import configparser
 import requests
+import json
 
 #config = configparser.ConfigParser()
 #config.read('credential.ini')
@@ -26,7 +27,8 @@ async def root():
 # request image from openai
 @app.post("/image_request")
 def get_image(animal: str):
-    return {"image_url": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
+    data = {"image_url": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
+    return json.dumps(data)
     files = {}
     try:
         response = requests.post(f"{url}/image_request", files=files)
