@@ -19,7 +19,7 @@ const Footer:React.FC = () => {
                 fontSize='1em'>
                     Developed for
                 </Text>
-                <Text fontSize='2em'>SwampHacksIX</Text>
+                <Text as='b' fontSize='2em'>SwampHacksIX</Text>
             </Stack>
 
             <Box
