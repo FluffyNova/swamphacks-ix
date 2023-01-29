@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Flex, Text, Box, HStack, Button, Image, Input, CardBody, Card, CardFooter, CardHeader, Heading, VStack, RadioGroup, Radio } from '@chakra-ui/react'
+import { Flex, Text, Box, HStack, Button, Image, Input, CardBody, Card, CardFooter, CardHeader, Heading, VStack, RadioGroup, Radio, FormControl } from '@chakra-ui/react'
 import { ReactElement, useState } from 'react'
 
 // SET TO BACKEND API SERVER
@@ -102,8 +102,10 @@ const Home: NextPage = () => {
                 <VStack
                 width='max-content'>
                    
+                    <FormControl>
+
                     
-                    <RadioGroup>
+                    <RadioGroup defaultValue='dolphin'>
 
                     <HStack
                    textColor='white'
@@ -136,7 +138,7 @@ const Home: NextPage = () => {
                       </HStack>
 
                       </RadioGroup>
-                      
+                      </FormControl>
                     
                     
                    
