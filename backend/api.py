@@ -46,4 +46,5 @@ def read_root():
     image = Image.open("straytest.jpeg")
     with open("straytest.jpeg", "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read())
+    image_file.close()
     return {"data": encoded_string}
