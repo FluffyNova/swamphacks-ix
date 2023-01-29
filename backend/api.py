@@ -1,5 +1,5 @@
 from typing import Union
-from fastapi import FastAPI, Response, Request, Body, Form
+from fastapi import FastAPI, Response, Request, Body
 from PIL import Image
 import base64
 import openai
@@ -8,7 +8,6 @@ import os
 import configparser
 import requests
 import json
-from pydantic import BaseModel
 
 #config = configparser.ConfigParser()
 #config.read('credential.ini')
@@ -25,23 +24,14 @@ url = 'https://swamphacksix.ue.r.appspot.com'
 async def root():
     return {"message": "Welcome to the back end"}
 
-class Animal(BaseModel):
-    img_url: str
-
 # request image from openai
 @app.post("/image_request")
-async def get_image(input: Form(...)):
-    return {"input": input}
-    data = {"image_url": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
-    return json.dumps(data)
-    try:
-        response = requests.post(f"{url}/image_request", files=files)
-        species_name = files['animal']
-        print(species_name)
-    except:
-        return {"image_url": "https://cdn.royalcanin-weshare-online.io/UCImMmgBaxEApS7LuQnZ/v2/eukanuba-market-image-puppy-beagle?w=5596&h=2317&rect=574,77,1850,1045&auto=compress,enhance"}
-
-    return {"hello", "end"}
+async def get_image(info : Request):
+    req_info = await info.json()
+    return {
+        "status" : "SUCCESS",
+        "data" : req_info
+    }
     #just for now
     
     try:
