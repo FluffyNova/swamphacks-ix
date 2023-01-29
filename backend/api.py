@@ -28,7 +28,7 @@ async def root():
 @app.post("/image_request")
 async def get_image(animal: str):
     data = {animal, "https://images.unsplash.com/photo-1600804340584-c7db2eacf0bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHVwcHl8ZW58MHx8MHx8&w=1000&q=80"}
-    return json.dumps(data)
+    return data
     
     try:
         #prompt for image
