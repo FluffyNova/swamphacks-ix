@@ -13,7 +13,8 @@ const Navbar:React.FC = () => {
                 <Text
                 fontSize={'2.5rem'}
                 textColor='white'
-                as='b'>
+                as='b'
+                p='2.5'>
                     onclick = Ocean()
                 </Text>
             </Box>
