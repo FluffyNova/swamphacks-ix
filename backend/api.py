@@ -3,6 +3,7 @@ from fastapi import FastAPI, Response, Request, Body
 from PIL import Image
 import base64
 import openai
+from pydantic import BaseModel
 from openai.error import InvalidRequestError
 import os
 import configparser
@@ -20,15 +21,17 @@ openai.api_key = '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'
 app = FastAPI()
 url = 'https://swamphacksix.ue.r.appspot.com'
 
+class Item(BaseModel):
+    name: str
+
 @app.get("/")
 async def root():
     return {"message": "Welcome to the back end"}
 
 # request image from openai
-@app.get("/image_request")
-def get_image():
-    data = {"animal", "string"}
-    return data
+@app.post("/image_request")
+async def get_image(item: Item):
+    return Item
 
     try:
         #prompt for image
