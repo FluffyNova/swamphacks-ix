@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Flex, Text, Box, HStack, Button, Image, Input, CardBody, Card, CardFooter, CardHeader, Heading, VStack } from '@chakra-ui/react'
+import { Flex, Text, Box, HStack, Button, Image, Input, CardBody, Card, CardFooter, CardHeader, Heading, VStack, RadioGroup, Radio } from '@chakra-ui/react'
 import { ReactElement, useState } from 'react'
 
 // SET TO BACKEND API SERVER
@@ -101,48 +101,43 @@ const Home: NextPage = () => {
              
                 <VStack
                 width='max-content'>
-                   <HStack
+                   
+                    
+                    <RadioGroup>
+
+                    <HStack
                    textColor='white'
                    width='max-content'>
-                    
-                      <VStack
-                      width='25%'>
-                        <input type='radio' id='octopus' name='animal' value='octopus' />
-                        <label for='octopus' >Octopus</label>
-                        
-                        <input type='radio' id='puffer' name='animal' value='pufferfish'/>
-                        <label for='puffer'>Pufferfish </label>
-                        <input type='radio' id='ray' name='animal' value='ray'/>
-                        <label for='ray'>Ray</label>
+
+                      <VStack>
+                        <Radio value='octopus'>Octopus</Radio>
+                        <Radio value='pufferfish'>Pufferfish</Radio>
+                        <Radio value='ray'>Ray</Radio>
                       </VStack>
                       
-                      <VStack width='25%'>
-                        <input type='radio' id='whale' name='animal' value='whale'/>
-                        <label for='whale'>Whale</label>
-                        <input type='radio' id='eel' name='animal' value='eel'/>
-                        <label for='eel'>Eel</label>
-                        <input type='radio' id='crab' name='animal' value='crab'/>
-                        <label for='crab'>Crab</label>
+                      <VStack >
+                        <Radio value='whale'>Whale</Radio>
+                        <Radio value='eel'>Eel</Radio>
+                        <Radio value='crab'>Crab</Radio>
                       </VStack>
 
-                      <VStack width='25%'>
-                        <input type='radio' id='squid' name='animal' value='squid'/>
-                        <label for='squid'>Squid</label>
-                        <input type='radio' id='coral' name='animal' value='coral'/>
-                        <label for='coral'>Coral</label>
-                        <input type='radio' id='dolphin' name='animal' value='dolphin'/>
-                        <label for='dolphin'>Dolphin</label>
+                      <VStack >
+                        <Radio value='squid'>Squid</Radio>
+                        <Radio value='coral'>Coral</Radio>
+                        <Radio value='dolphin'>Dolphin</Radio>
                       </VStack>
 
-                      <VStack width='25%'>
-                        <input type='radio' id='starfish' name='animal' value='starfish'/>
-                        <label for='starfish'>Starfish</label>
-                        <input type='radio' id='lobster' name='animal' value='lobster'/>
-                        <label for='lobster'>Lobster</label>
-                        <input type='radio' id='jellyfish' name='animal' value='jellyfish'/>
-                        <label for='jellyfish'>Jellyfish</label>
+                      <VStack >
+                        <Radio value='starfish'>Starfish</Radio>
+                        <Radio value='lobster'>Lobster</Radio>
+                        <Radio value='jellyfish'>Jellyfish</Radio>
                       </VStack>
+                      
                       </HStack>
+
+                      </RadioGroup>
+                      
+                    
                     
                    
                     <Button
@@ -183,10 +178,10 @@ const Home: NextPage = () => {
             m='0 auto'
             display='block'/>
 
-            <figcaption>Your animal is</figcaption>
           </Box>
         </Box>
     </Flex>
+    
   )
 }
 
