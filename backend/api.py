@@ -7,10 +7,12 @@ from openai.error import InvalidRequestError
 import os
 import configparser
 
-config = configparser.ConfigParser()
-config.read('credential.ini')
-API_KEY = config['openai']['APIKEY']
-openai.api_key = API_KEY
+#config = configparser.ConfigParser()
+#config.read('credential.ini')
+#API_KEY = config['openai']['APIKEY']
+#openai.api_key = API_KEY
+
+openai.api_key = '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'
 
 app = FastAPI()
 
