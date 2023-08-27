@@ -16,7 +16,7 @@ import json
 #openai.api_key = API_KEY
 
 #todo fix creditial.ini pls
-openai.api_key = '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'
+openai.api_key = '[insert api key]'
 
 app = FastAPI()
 url = 'https://swamphacksix.ue.r.appspot.com'
